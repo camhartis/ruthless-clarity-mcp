@@ -68,33 +68,6 @@ npx @modelcontextprotocol/inspector node dist/index.js
 }
 ```
 
----
-
-## Docker (recommended for MCPRush / remote deploy)
-
-MCPRush can build from this Dockerfile (or consume a pre-built image). The server uses **stdio** transport; MCPRush adds the HTTP adapter automatically for container images.
-
-```bash
-# Build
-docker build -t ruthless-clarity-mcp .
-
-# Run locally (stdio)
-docker run -i --rm ruthless-clarity-mcp
-
-# Inspect with MCP Inspector
-npx @modelcontextprotocol/inspector docker run -i --rm ruthless-clarity-mcp
-```
-
-### MCPRush deploy notes
-
-1. Point MCPRush at this repository (or a published container image).
-2. Select **Dockerfile** / container build path (not the plain Node.js npm path).
-3. Command that starts the server: `node dist/index.js` (already set as ENTRYPOINT).
-4. No environment variables or secrets required for the public skill version.
-
-If the npm-based build path continues to fail on MCPRush, switch the listing source to **container image** or **Dockerfile** and re-submit.
-
----
 
 ## Development
 
