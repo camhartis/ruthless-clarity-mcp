@@ -6,10 +6,9 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies first for better layer caching
-COPY package.json ./
-# No package-lock.json in repo yet; install will generate one
-RUN npm install
+# Install dependencies first for better layer caching (lockfile = reproducible)
+COPY package.json package-lock.json ./
+RUN npm ci
 
 # Copy source and compile
 COPY tsconfig.json ./
@@ -22,8 +21,8 @@ FROM node:22-alpine AS runtime
 WORKDIR /app
 
 # Production dependencies only
-COPY package.json ./
-RUN npm install --omit=dev && npm cache clean --force
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev && npm cache clean --force
 
 # Copy compiled output from builder
 COPY --from=builder /app/dist ./dist
