@@ -7,13 +7,31 @@ description: Permanent operating system for every agent task and bounty work. Us
 
 This skill is the permanent operating system. Load it first on every task. Do not proceed without it.
 
+## How the loop actually runs (read this first)
+
+Chapters 2, 3, and 4 are **conceptually parallel** (you reason across map, lever, and kills together).  
+They are **operationally atomic**: you commit them as one complete artifact. You do not call three separate chapter tools. You do not finish a full map and only then invent a lever.
+
+| Phase | What you produce | How you commit it |
+|-------|------------------|-------------------|
+| Chapter 1 | Locked victory condition | `define_victory` (if MCP available) or explicit locked statement in output |
+| Chapters 2+3+4 | Reality map + controlling variable + kill log | Single call to `run_diagnostic_loop` (or single structured block in output) |
+| Chapter 5 | Needle metric | `set_needle_metric` |
+| Chapter 6 | Small irreversible bet | `propose_irreversible_bet` |
+| Chapter 7 | Locked decision | `lock_decision` |
+| Chapter 8 | Verification against needle | `verify_cut` |
+| Chapter 9 | Rollback or double-down | `rollback_or_double_down` |
+| Chapter 10 | Lesson codified | `codify_lesson` |
+
+If the MCP server is not connected, produce the same artifacts in the same order as structured sections in your reply. Do not invent alternate sequences. Do not skip a gate and claim it was "implicit."
+
 ## Non-Negotiable Sequence
 
-1. Execute Chapter 1 first. Lock the Victory Condition before any further work.
-2. Run Chapters 2, 3, and 4 as one integrated parallel diagnostic loop.
-3. Only after the diagnostic loop produces its required outputs may later chapters be considered.
+1. Lock Chapter 1 before any diagnostic or execution work.
+2. Commit Chapters 2+3+4 as one atomic diagnostic package after Chapter 1 is locked.
+3. Only after the diagnostic package exists may needle, bet, lock, verify, or codify run.
 4. Treat every Required Output as a hard gate. Do not invent missing upstream artifacts.
-5. Any controlling-variable statement must pass the Chapter 3 test before acceptance.
+5. Any controlling-variable statement must pass the manipulability test before acceptance.
 
 Full original framework (all 12 chapters) lives in `references/full-framework.md`. Load it only when deeper fidelity on later chapters is required.
 
@@ -26,60 +44,54 @@ Victory is a single, verifiable state that must be true for the work to have bee
 
 **Do not spend the first calorie until this statement exists and is locked.**
 
-Required outputs before any further work:
+**Required outputs (must all be present):**
 - One-sentence Victory Condition (a state, not an action)
-- Explicit verification method
-- List of unknowns / assumptions / risks with owners and resolution dates
+- Explicit verification method (objective check)
 - Grandmother-test translation (plain language)
-- Measurement target (if applicable)
-- Statement of what will be done if the victory condition is not met
 - Confirmation that the statement is locked
 
-Chapters 2–12 may not begin until these outputs exist and are treated as fixed.
+**Strongly recommended (include when known):**
+- Key unknowns / assumptions / risks
+- Measurement target if applicable
+- What you will do if the victory condition is not met
 
-## Parallel Diagnostic Loop (Chapters 2 + 3 + 4)
+Chapters 2–12 may not begin until the required outputs exist and are treated as fixed.
 
-Once Chapter 1 is locked, run these three as one integrated loop, not sequential steps:
+## Diagnostic Package (Chapters 2 + 3 + 4) — One Atomic Commit
 
-- Start mapping reality (Chapter 2).
-- While the map is still forming, trace dependency chains upstream to isolate the controlling variable (Chapter 3).
-- Simultaneously kill any option the moment it fails a hard constraint (Chapter 4).
-
-Noise is removed as signal is elevated. Do not finish a complete reality map and only then look for the controlling variable.
+Reason across all three while forming the package. Commit once when all required fields are ready.
 
 ### Chapter 2 — Map Reality Without Flinching
 
 Map the process as it actually runs, not as documentation pretends.  
 Name every real handoff, undocumented workaround, approval gate, single point of failure, and owner who does not actually own the step.
 
-Agent method:
+Method:
 - Segment the system into 3–7 major pieces.
 - For each segment list real inputs, real outputs, real owner, real frequency, and real failure modes.
 - Explicitly flag every junction/handoff.
 - Mark undocumented steps and approval gates.
 - Trace actual ownership, not title ownership.
 
-Required outputs:
+Required inside the diagnostic package:
 - Named segments / processes
 - Explicit list of junctions and handoffs (with real owners)
 - Flagged undocumented workarounds and approval gates
 - Initial variable inventory
-- First-pass dependency directions
 
 ### Chapter 3 — Identify the Controlling Variable
 
 The controlling variable is never an outcome, a hope, a market condition, or a "whether."  
 It is the single rate, volume, or action we can directly increase or decrease inside the time window that has the highest causal impact on the defined victory.
 
-**Test:** Can we change this number or action this afternoon without waiting for external permission or luck? If no, it is not the controlling variable. Rewrite until the answer is yes.
+**Manipulability test (hard):** Can we change this number or action this afternoon without waiting for external permission or luck?  
+If no → it is not the controlling variable. Rewrite until yes.  
+"Whether X happens" and "market demand" always fail this test.
 
-Required outputs:
-- Symptom statement
-- Complete variable inventory (name everything, protect nothing)
-- Upstream dependency chain from symptom to candidate controlling variable(s)
-- Explicit statement of the controlling variable
+Required inside the diagnostic package:
+- Explicit statement of the controlling variable (rate, volume, or action)
+- One-sentence proof of manipulability (how we change it this afternoon)
 - Justification why changing this one thing moves the victory condition
-- Note of any variable that was being protected from scrutiny
 
 ### Chapter 4 — Kill Options Early
 
@@ -87,38 +99,50 @@ Name the hard constraints first.
 Any option that fails a constraint is killed the moment it fails and is recorded with the exact constraint that killed it.  
 A killed option stays dead unless new evidence forces a full re-justification from scratch.
 
-Required outputs:
-- Explicit list of hard constraints
-- Kill log (every option → first constraint failed → killed Y/N → time spent)
+Required inside the diagnostic package:
+- Explicit list of hard constraints (at least one)
+- Kill log with at least one option considered: each row = option → constraint failed (or "survived") → killed Y/N
 - List of options that survived
-- Kill-rate summary
-- Statement of any option that was almost carried
 
-Only surviving options may be considered in later work.
+Empty kill logs are invalid. "No options considered" is invalid.
 
-## After the Diagnostic Loop
+## After the Diagnostic Package
 
-Only when Chapters 1–4 have produced their artifacts:
+Only when Chapters 1–4 artifacts exist:
 
-- Chapter 5 selects the single Needle Metric causally linked to both Victory and Controlling Variable.
-- Chapters 6–9 handle small irreversible bets, locking the cut, verification, and rollback/double-down.
-- Chapters 10–12 handle codification, teaching, and living the protocol.
+1. **Needle** — one metric causally linked to both Victory and Controlling Variable.
+2. **Bet** — small irreversible bet with rollback condition and time box. Required before locking a decision.
+3. **Lock** — make the cut once; protect it from casual reopening.
+4. **Verify** — binary check against the needle. Feeling better is not verification.
+5. **Rollback or double-down** — forced by verification result. On rollback, return to diagnostic with prior diagnostic/needle/decision treated as stale. On double-down, codify the lesson.
 
-Load `references/full-framework.md` when the task reaches these phases and deeper fidelity is required.
+## Failure Modes This Skill Forbids
+
+- Skipping Chapter 1 and "inferring" victory later
+- Sequential fake-parallel: full map finished, then lever invented, then kills as afterthought
+- Controlling variables that fail manipulability ("whether customers buy", "market conditions")
+- Empty or missing kill logs
+- Locking a decision without a prior bet artifact
+- Declaring victory without needle verification
+- Codifying a lesson before verification
+- Reopening a killed option without full re-justification from scratch
 
 ## Project-Specific Overlay (Agent Bounty Protocol)
 
-When operating inside this project:
+Apply only when the active project is the Agent Bounty Protocol (or the user explicitly says this overlay is in force):
+
 - Victory is verified payout received, not task completion.
 - Strict filter: only high-fit diagnostic / research / evaluation / process tasks. Kill commodity generation on sight.
 - Free-tier limits are a hard constraint. Treat message budget as scarce capital.
 - Deliver structured diagnostic packages, never surface-level output.
-- You remain the sole human rail for accounts, wallets, submissions, and KYC.
+- The human remains the sole rail for accounts, wallets, submissions, and KYC.
+
+Do **not** apply this overlay to unrelated tasks.
 
 ## Usage Rule
 
 Before any task, confirm this skill is loaded.  
-Execute Chapter 1 first.  
-Run the parallel diagnostic loop.  
-Produce the required outputs.  
-Only then proceed.
+Lock Chapter 1.  
+Commit the diagnostic package (2+3+4) as one atomic unit.  
+Then needle → bet → lock → verify → rollback/double-down → codify.  
+Missing an upstream artifact is a hard stop, not a prompt to invent one.

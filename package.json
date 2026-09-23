@@ -1,6 +1,6 @@
 {
   "name": "ruthless-clarity-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Decision-discipline harness MCP server based on the Ruthless Clarity protocol",
   "type": "module",
   "main": "dist/index.js",
