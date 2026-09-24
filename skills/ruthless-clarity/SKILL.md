@@ -1,51 +1,54 @@
 ---
 name: ruthless-clarity
-description: Permanent operating system for every agent task and bounty work. Use on any diagnostic, research, evaluation, process, or bounty task. Triggers include define victory, map reality, controlling variable, kill options, diagnostic package, parallel diagnostic loop, tightening loop, Chapter 1-4, ruthless clarity, victory condition, hard constraints, needle metric. Load this skill before any real work begins.
+description: Permanent operating system for every agent task and bounty work. Use on any diagnostic, research, evaluation, process, or bounty task. Triggers include define victory, map reality, controlling variable, kill options, diagnostic package, parallel diagnostic loop, tightening loop, ruthless clarity, victory condition, hard constraints, needle metric, record bet result. Load this skill before any real work begins.
 ---
 
 # Ruthless Clarity — Agent Operating System
 
 This skill is the permanent operating system. Load it first on every task. Do not proceed without it.
 
+**Vocabulary:** Use **function names** (Victory, Tightening loop, Needle, Bet, Lock, Verify, …).  
+Chapter numbers are optional cross-references to `references/full-framework.md` for book readers — not the primary interface.
+
 ## How the loop actually runs (read this first)
 
-Chapters 2, 3, and 4 are **not three sequential steps** and not three simultaneous essays.  
-They are **one tightening loop**: map a slice → kill noise → test a controlling-variable candidate → narrow the map → repeat until the CV holds.
+The diagnostic is **not three sequential steps** and not three simultaneous essays.  
+It is **one tightening loop**: map a slice → kill noise → test a controlling-variable candidate → narrow the map → repeat until the CV holds.
 
-They are **operationally atomic** at commit time: one `run_diagnostic_loop` (or one structured block) when the loop has **converged** — not when the map is “complete.”
+It is **operationally atomic** at commit time: one `run_diagnostic_loop` (or one structured block) when the loop has **converged** — not when the map is “complete.”
 
 **Incomplete maps are intentional.** A long map is not a better diagnostic. Completeness that delays kills and CV isolation is a failure mode.
 
-**Bet before lock is not enough.** Protocol Chapter 6 produces information; Chapter 7 locks after that information exists. You must **record bet results** before locking a decision.
+**Bet plan is not enough to Lock.** The Bet must **run and produce results** before Lock. Record results, then lock the cut.
 
-| Phase | What you produce | How you commit it |
-|-------|------------------|-------------------|
-| Chapter 1 | Locked victory condition | `define_victory` (or explicit locked statement) |
-| Chapters 2+3+4 | Reality map + CV + kill log | Single `run_diagnostic_loop` after the tightening loop converges |
-| Chapter 5 | Needle metric + causal link | `set_needle_metric` |
-| Chapter 6 plan | Small irreversible bet | `propose_irreversible_bet` |
-| Chapter 6 outcome | Bet results / information gained | `record_bet_result` |
-| Chapter 7 | Locked decision | `lock_decision` (requires bet **results**) |
-| Chapter 8 | Verification against needle | `verify_cut` |
-| Chapter 9 | Rollback or double-down | `rollback_or_double_down` |
-| Chapter 10 | Lesson codified | `codify_lesson` |
-| Chapters 11–12 | Teach / Live | Human and system responsibility — not automated here |
+| Gate | What you produce | How you commit it |
+|------|------------------|-------------------|
+| **Victory** | Locked victory condition | `define_victory` (or explicit locked statement) |
+| **Tightening loop → Diagnostic package** | Reality map + CV + kill log | Single `run_diagnostic_loop` after the loop converges |
+| **Needle** | Metric + causal link | `set_needle_metric` |
+| **Bet (plan)** | Small irreversible bet | `propose_irreversible_bet` |
+| **Bet (result)** | Information gained | `record_bet_result` |
+| **Lock** | Locked decision / cut | `lock_decision` (requires bet **results**) |
+| **Verify** | Check against needle | `verify_cut` |
+| **Rollback / Double-down** | Forced binary response | `rollback_or_double_down` |
+| **Codify** | Lesson in the system | `codify_lesson` |
+| **Teach / Live** | Transfer + private standard | Human and system responsibility — not automated here |
 
 If the MCP server is not connected, produce the same artifacts in the same order as structured sections in your reply. Do not invent alternate sequences. Do not skip a gate and claim it was "implicit."
 
 ## Non-Negotiable Sequence
 
-1. Lock Chapter 1 before any diagnostic or execution work.
-2. Run the **tightening loop** (below); commit Chapters 2+3+4 as one atomic package only when it has converged.
-3. Only after the diagnostic package exists may needle, bet, lock, verify, or codify run.
-4. Propose the bet, **run it**, record results — then lock. Lock without results is forbidden.
+1. Lock **Victory** before any diagnostic or execution work.
+2. Run the **tightening loop**; commit the **diagnostic package** only when it has converged.
+3. Only after the diagnostic package exists may Needle, Bet, Lock, Verify, or Codify run.
+4. Propose the Bet, **run it**, record results — then **Lock**. Lock without results is forbidden.
 5. Treat every Required Output as a hard gate. Do not invent missing upstream artifacts.
 6. Any controlling-variable statement must pass the manipulability test before acceptance.
 7. Options killed in this session stay dead unless fully re-justified with new evidence.
 
-Full original framework (all 12 chapters) lives in `references/full-framework.md`. Load it only when deeper fidelity on later chapters is required.
+Full book-aligned framework (optional depth) lives in `references/full-framework.md`.
 
-## Chapter 1 — Define Victory Ruthlessly (Hard Gate)
+## Victory (Hard Gate)
 
 Victory is never a feeling, a go-live date, a timeline, or "we are ready."  
 Victory is a single, verifiable state that must be true for the work to have been worth doing.
@@ -62,11 +65,11 @@ Victory is a single, verifiable state that must be true for the work to have bee
 - What you will do if the victory condition is not met
 - Confirmation that the statement is locked
 
-Chapters 2–12 may not begin until these outputs exist and are treated as fixed.
+No later gate may begin until these outputs exist and are treated as fixed.
 
-## Diagnostic Package (Chapters 2 + 3 + 4) — The Tightening Loop
+## Diagnostic Package — The Tightening Loop
 
-### What “parallel” means
+### What the loop is
 
 Map, kill, and controlling-variable isolation **sharpen each other in real time**:
 
@@ -106,7 +109,7 @@ Do **not** finish a complete reality map and only then invent a lever.
 Do **not** inventory every option and only later apply constraints.  
 Do **not** treat a long map as higher quality.
 
-### Chapter 2 — Map Reality Without Flinching
+### Map Reality
 
 Map the process as it actually runs, not as documentation pretends.  
 Name real handoffs, undocumented workarounds, approval gates, single points of failure, and owners who do not actually own the step.
@@ -124,7 +127,7 @@ Required in the committed package:
 - Junctions/handoffs that affect the lever
 - Initial variable inventory (name what you saw; protect nothing)
 
-### Chapter 3 — Identify the Controlling Variable
+### Controlling Variable
 
 The controlling variable is never an outcome, a hope, a market condition, or a "whether."  
 It is the single rate, volume, or action we can directly increase or decrease inside the time window that has the highest causal impact on the defined victory.
@@ -139,7 +142,7 @@ Required in the committed package:
 - Proof of manipulability (concrete action this afternoon)
 - Causal justification (why changing this moves victory)
 
-### Chapter 4 — Kill Options Early
+### Kill Options
 
 Name hard constraints first.  
 Any option that fails a constraint is killed the moment it fails and recorded with the exact constraint that killed it.  
@@ -157,28 +160,29 @@ Empty kill logs are invalid. "No options considered" is invalid.
 
 ## After the Diagnostic Package
 
-Only when Chapters 1–4 artifacts exist:
+Only when Victory + diagnostic package exist:
 
 1. **Needle** — one metric causally linked to both Victory and Controlling Variable. State the causal link. If the metric can move without victory moving, it is wrong.
-2. **Bet plan** — small irreversible bet with rollback condition and time box.
-3. **Bet result** — measured needle movement, outcome, information gained. **Required before lock.**
+2. **Bet (plan)** — small irreversible bet with rollback condition and time box.
+3. **Bet (result)** — measured needle movement, outcome, information gained. **Required before Lock.**
 4. **Lock** — make the cut once using information the bet produced.
 5. **Verify** — binary check against the needle with explicit target comparison.
-6. **Rollback or double-down** — forced by verification. Rollback clears diagnostic↓; permanent kills remain.
+6. **Rollback or Double-down** — forced by verification. Rollback clears diagnostic↓; permanent kills remain.
 7. **Codify** — only after met + double_down.
 
 ## Failure Modes This Skill Forbids
 
-- Skipping Chapter 1 and "inferring" victory later
+- Skipping Victory and "inferring" it later
 - Sequential fake-parallel: full map finished, then lever invented, then kills as afterthought
 - **Complete-map theater:** long reality maps that delay kills and CV isolation
 - Controlling variables that fail manipulability ("whether customers buy", "market conditions")
 - Empty or missing kill logs
-- Locking a decision with only a bet *proposal* — results are required
-- Declaring victory without needle verification and target comparison
-- Codifying a lesson before verification + double_down
+- **Lock** with only a Bet *plan* — results are required
+- Declaring victory without Verify and target comparison
+- Codify before Verify + double_down
 - Reopening a killed option without full re-justification from scratch
-- Treating Chapters 11–12 as irrelevant after codify (they still apply; this skill does not automate them)
+- Using chapter numbers as the primary navigation when function names exist (prefer Victory, Bet, Lock, …)
+- Treating Teach / Live as irrelevant after Codify (they still apply; this skill does not automate them)
 
 ## Project-Specific Overlay (Agent Bounty Protocol)
 
@@ -196,7 +200,7 @@ Do **not** apply this overlay to unrelated tasks.
 ## Usage Rule
 
 Before any task, confirm this skill is loaded.  
-Lock Chapter 1 (including unknowns and if-not-met).  
-Run the tightening loop until the CV holds; commit the diagnostic package once.  
-Then needle → propose bet → **record bet result** → lock → verify → rollback/double-down → codify.  
+Lock **Victory** (including unknowns and if-not-met).  
+Run the **tightening loop** until the CV holds; commit the **diagnostic package** once.  
+Then **Needle** → Bet plan → **Bet result** → **Lock** → **Verify** → Rollback/Double-down → **Codify**.  
 Missing an upstream artifact is a hard stop, not a prompt to invent one.
