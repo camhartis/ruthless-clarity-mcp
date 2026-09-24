@@ -15,13 +15,13 @@ It is **not** a general agent harness. It is a decision-quality layer that reduc
 
 | Gate | Rule |
 |------|------|
-| **Victory** | Verifiable state + grandmother test before any further work |
+| **Victory** | Verifiable state + grandmother test + unknowns + if-not-met before any further work |
 | **Diagnostic package** | Reality map + controlling variable + kill log committed as **one atomic unit** |
 | **Manipulability** | Controlling variable must be a rate/volume/action changeable this afternoon — not a “whether,” hope, or market condition |
-| **Kill discipline** | Named hard constraints first; empty kill logs rejected; killed options stay dead |
-| **Bet before lock** | Small irreversible bet must be recorded before a decision can be locked |
-| **Verify before celebrate** | Binary check against the needle metric |
-| **Rollback / double-down** | Forced by verification result; rollback clears stale diagnostic state |
+| **Kill discipline** | Named hard constraints first; empty kill logs rejected; **session-permanent** kills unless rejustified |
+| **Bet results before lock** | Propose bet → run it → **record results** → then lock (protocol Ch 6 → Ch 7) |
+| **Verify before celebrate** | Binary check against the needle with explicit target comparison |
+| **Rollback / double-down** | Forced by verification result; rollback clears stale diagnostic state; permanent kills retained |
 | **Codify after success** | Lessons only after `verification=met` and `double_down` |
 
 Secondary effect: lower token waste and better viability of smaller models once diagnostic artifacts exist.
@@ -34,19 +34,20 @@ Protocol detail: [`skills/ruthless-clarity/SKILL.md`](skills/ruthless-clarity/SK
 
 | Tool | Requires | Produces |
 |------|----------|----------|
-| `define_victory` | — | Locked victory (resets all downstream state) |
-| `run_diagnostic_loop` | Victory locked | Atomic diagnostic package (map + CV + kills) |
-| `set_needle_metric` | Diagnostic complete | Single causal needle metric |
-| `propose_irreversible_bet` | Needle set | Recorded bet (required before lock) |
-| `lock_decision` | Bet recorded | Locked decision |
-| `verify_cut` | Decision locked | `met` / `not_met` + evidence |
+| `define_victory` | — | Locked victory (resets diagnostic↓; permanent kills kept) |
+| `run_diagnostic_loop` | Victory locked | Atomic diagnostic package; appends kills to session permanent log |
+| `set_needle_metric` | Diagnostic complete | Needle + causal link |
+| `propose_irreversible_bet` | Needle set | Bet **plan** |
+| `record_bet_result` | Bet proposed | Bet **results** (information gained) |
+| `lock_decision` | Bet **results** recorded | Locked decision |
+| `verify_cut` | Decision locked | `met` / `not_met` + target comparison |
 | `rollback_or_double_down` | Verification done | Consistent action; rollback clears diagnostic↓ |
 | `codify_lesson` | `met` + `double_down` | Codified lesson |
-| `get_protocol_status` | — | Gate checklist for current session |
+| `get_protocol_status` | — | Gate checklist (includes bet result + permanent kills) |
 | `export_artifacts` | — | Full session state JSON |
 
 **Operational sequence (do not invent another):**  
-`define_victory` → `run_diagnostic_loop` → `set_needle_metric` → `propose_irreversible_bet` → `lock_decision` → `verify_cut` → `rollback_or_double_down` → (`codify_lesson` only on success)
+`define_victory` → `run_diagnostic_loop` → `set_needle_metric` → `propose_irreversible_bet` → **`record_bet_result`** → `lock_decision` → `verify_cut` → `rollback_or_double_down` → (`codify_lesson` only on success)
 
 Chapters 2–4 are *conceptually* parallel (reason across map, lever, and kills together). They are *operationally* atomic: one commit via `run_diagnostic_loop`.
 
@@ -109,7 +110,8 @@ Managed builds require a **public** source (or GitHub App read access). A privat
 - **Session-scoped state only** — no durable customer data on the server
 - **Hard gates** — downstream tools return `isError: true` when upstream artifacts are missing
 - **Atomic diagnostic** — prevents sequential fake-parallel (map → invent lever → afterthought kills)
-- **State invalidation** — redefining victory or diagnostic clears dependent artifacts
+- **Session permanent kill log** — survives diagnostic refresh and rollback within the process
+- **State invalidation** — redefining victory or diagnostic clears dependent artifacts (not permanent kills)
 - **Separate from** the private “Company Brain” variant (persistent, multi-layer, IoT-capable)
 
 ---

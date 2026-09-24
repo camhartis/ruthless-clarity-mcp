@@ -11,11 +11,12 @@ It forces a fixed gate sequence. Do not turn it into a general agent framework, 
 
 1. **Hard gates stay hard.** Never soften a gate to "warn and continue." Missing upstream artifacts must return `isError: true` with a clear `HARD GATE` or `REJECTED` message.
 2. **Atomic diagnostic package.** Chapters 2+3+4 are one operational commit (`run_diagnostic_loop`). Do not split into three tools unless the skill, README, AGENTS.md, and tests are updated together.
-3. **Bet before lock.** `lock_decision` must require a recorded bet. Do not remove that check.
-4. **Codify only after success.** `codify_lesson` requires `verification.result === "met"` and `lastAction === "double_down"`.
-5. **Rollback clears stale state.** On rollback, clear diagnostic and everything below it. Victory may remain locked.
-6. **Session state only.** No database, no cross-session persistence in the public server. Persistent variants belong in a separate product.
-7. **stdio is the default transport.** Streamable HTTP is a deliberate addition, not an accidental side effect. Stock Dockerfile stays stdio.
+3. **Bet results before lock.** `lock_decision` requires `record_bet_result`, not only `propose_irreversible_bet`. This matches protocol Ch 6 → Ch 7 (information before commitment).
+4. **Session permanent kills.** Options killed in-session stay dead across diagnostic refresh and rollback unless `rejustification` is supplied when marking them survived.
+5. **Codify only after success.** `codify_lesson` requires `verification.result === "met"` and `lastAction === "double_down"`.
+6. **Rollback clears stale state; permanent kills remain.** On rollback, clear diagnostic and everything below it. Victory may remain locked. `permanentKillLog` is retained.
+7. **Session state only.** No database, no cross-session persistence in the public server. Persistent variants belong in a separate product.
+8. **stdio is the default transport.** Streamable HTTP is a deliberate addition, not an accidental side effect. Stock Dockerfile stays stdio.
 
 ## Gate sequence (do not reorder)
 
@@ -24,10 +25,11 @@ define_victory
   → run_diagnostic_loop
     → set_needle_metric
       → propose_irreversible_bet
-        → lock_decision
-          → verify_cut
-            → rollback_or_double_down
-              → codify_lesson   # only if double_down
+        → record_bet_result
+          → lock_decision
+            → verify_cut
+              → rollback_or_double_down
+                → codify_lesson   # only if double_down
 ```
 
 If you add a tool, place it explicitly in this chain and update:
@@ -51,7 +53,7 @@ If you add a tool, place it explicitly in this chain and update:
 
 - Prefer **structural** rejects (empty arrays, "whether"/hope patterns, missing required strings) over keyword heuristics alone.
 - Every reject path must tell the agent **what to fix**, not only that it failed.
-- `get_protocol_status` must reflect any new gate flags you add.
+- `get_protocol_status` must reflect any new gate flags you add (including `betResultRecorded`, `sessionPermanentKills`).
 
 ## Docs that must stay consistent
 
@@ -71,14 +73,20 @@ Broken links (e.g. references to removed `protocol/` paths) are release blockers
 - Do not expand the bounty overlay into default behavior for all users.
 - Do not claim Docker custom-Dockerfile path supports stdio-only servers on MCPRush (it does not; Node or published-image paths do).
 - Do not invent a second "parallel" operational path that diverges from `run_diagnostic_loop`.
+- Do not allow `lock_decision` after proposal only — results are required.
 
 ## Local verification before PR
 
 ```bash
 npm install
 npm run build
-# Manual: run inspector and walk the gate sequence once
 npx @modelcontextprotocol/inspector node dist/index.js
 ```
 
-Confirm: missing victory blocks diagnostic; empty kill log rejected; lock without bet rejected; codify without double_down rejected; rollback clears status flags.
+Confirm:
+- missing victory blocks diagnostic
+- empty kill log rejected
+- revived permanent kill without rejustification rejected
+- lock without bet **result** rejected
+- codify without double_down rejected
+- rollback clears status flags but retains permanentKillLog count

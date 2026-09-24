@@ -12,16 +12,20 @@ This skill is the permanent operating system. Load it first on every task. Do no
 Chapters 2, 3, and 4 are **conceptually parallel** (you reason across map, lever, and kills together).  
 They are **operationally atomic**: you commit them as one complete artifact. You do not call three separate chapter tools. You do not finish a full map and only then invent a lever.
 
+**Bet before lock is not enough.** Protocol Chapter 6 produces information; Chapter 7 locks after that information exists. You must **record bet results** before locking a decision.
+
 | Phase | What you produce | How you commit it |
 |-------|------------------|-------------------|
-| Chapter 1 | Locked victory condition | `define_victory` (if MCP available) or explicit locked statement in output |
-| Chapters 2+3+4 | Reality map + controlling variable + kill log | Single call to `run_diagnostic_loop` (or single structured block in output) |
-| Chapter 5 | Needle metric | `set_needle_metric` |
-| Chapter 6 | Small irreversible bet | `propose_irreversible_bet` |
-| Chapter 7 | Locked decision | `lock_decision` |
+| Chapter 1 | Locked victory condition | `define_victory` (or explicit locked statement) |
+| Chapters 2+3+4 | Reality map + CV + kill log | Single `run_diagnostic_loop` (or one structured block) |
+| Chapter 5 | Needle metric + causal link | `set_needle_metric` |
+| Chapter 6 plan | Small irreversible bet | `propose_irreversible_bet` |
+| Chapter 6 outcome | Bet results / information gained | `record_bet_result` |
+| Chapter 7 | Locked decision | `lock_decision` (requires bet **results**) |
 | Chapter 8 | Verification against needle | `verify_cut` |
 | Chapter 9 | Rollback or double-down | `rollback_or_double_down` |
 | Chapter 10 | Lesson codified | `codify_lesson` |
+| Chapters 11–12 | Teach / Live | Human and system responsibility — not automated here |
 
 If the MCP server is not connected, produce the same artifacts in the same order as structured sections in your reply. Do not invent alternate sequences. Do not skip a gate and claim it was "implicit."
 
@@ -30,8 +34,10 @@ If the MCP server is not connected, produce the same artifacts in the same order
 1. Lock Chapter 1 before any diagnostic or execution work.
 2. Commit Chapters 2+3+4 as one atomic diagnostic package after Chapter 1 is locked.
 3. Only after the diagnostic package exists may needle, bet, lock, verify, or codify run.
-4. Treat every Required Output as a hard gate. Do not invent missing upstream artifacts.
-5. Any controlling-variable statement must pass the manipulability test before acceptance.
+4. Propose the bet, **run it**, record results — then lock. Lock without results is forbidden.
+5. Treat every Required Output as a hard gate. Do not invent missing upstream artifacts.
+6. Any controlling-variable statement must pass the manipulability test before acceptance.
+7. Options killed in this session stay dead unless fully re-justified with new evidence.
 
 Full original framework (all 12 chapters) lives in `references/full-framework.md`. Load it only when deeper fidelity on later chapters is required.
 
@@ -48,14 +54,11 @@ Victory is a single, verifiable state that must be true for the work to have bee
 - One-sentence Victory Condition (a state, not an action)
 - Explicit verification method (objective check)
 - Grandmother-test translation (plain language)
+- Key unknowns / assumptions / risks (with owners and resolution intent when known)
+- What you will do if the victory condition is not met
 - Confirmation that the statement is locked
 
-**Strongly recommended (include when known):**
-- Key unknowns / assumptions / risks
-- Measurement target if applicable
-- What you will do if the victory condition is not met
-
-Chapters 2–12 may not begin until the required outputs exist and are treated as fixed.
+Chapters 2–12 may not begin until these outputs exist and are treated as fixed.
 
 ## Diagnostic Package (Chapters 2 + 3 + 4) — One Atomic Commit
 
@@ -89,9 +92,10 @@ If no → it is not the controlling variable. Rewrite until yes.
 "Whether X happens" and "market demand" always fail this test.
 
 Required inside the diagnostic package:
+- Symptom statement (what is actually observed)
 - Explicit statement of the controlling variable (rate, volume, or action)
 - One-sentence proof of manipulability (how we change it this afternoon)
-- Justification why changing this one thing moves the victory condition
+- Causal justification (why changing this one thing moves the victory condition)
 
 ### Chapter 4 — Kill Options Early
 
@@ -103,18 +107,23 @@ Required inside the diagnostic package:
 - Explicit list of hard constraints (at least one)
 - Kill log with at least one option considered: each row = option → constraint failed (or "survived") → killed Y/N
 - List of options that survived
+- If reviving a previously killed option in this session: explicit rejustification with new evidence
 
 Empty kill logs are invalid. "No options considered" is invalid.
+
+**Session permanent kill rule:** Options killed earlier in this session cannot be marked survived on a later diagnostic without rejustification. This is not optional.
 
 ## After the Diagnostic Package
 
 Only when Chapters 1–4 artifacts exist:
 
-1. **Needle** — one metric causally linked to both Victory and Controlling Variable.
-2. **Bet** — small irreversible bet with rollback condition and time box. Required before locking a decision.
-3. **Lock** — make the cut once; protect it from casual reopening.
-4. **Verify** — binary check against the needle. Feeling better is not verification.
-5. **Rollback or double-down** — forced by verification result. On rollback, return to diagnostic with prior diagnostic/needle/decision treated as stale. On double-down, codify the lesson.
+1. **Needle** — one metric causally linked to both Victory and Controlling Variable. State the causal link explicitly. If the metric can move without victory moving, it is the wrong metric.
+2. **Bet plan** — small irreversible bet with rollback condition and time box.
+3. **Bet result** — measured needle movement, outcome, information gained. **Required before lock.**
+4. **Lock** — make the cut once using the information the bet produced; protect it from casual reopening.
+5. **Verify** — binary check against the needle with explicit target comparison. Feeling better is not verification.
+6. **Rollback or double-down** — forced by verification result. On rollback, diagnostic/needle/decision are stale; permanent kills remain. On double-down, codify the lesson.
+7. **Codify** — only after met + double_down.
 
 ## Failure Modes This Skill Forbids
 
@@ -122,10 +131,11 @@ Only when Chapters 1–4 artifacts exist:
 - Sequential fake-parallel: full map finished, then lever invented, then kills as afterthought
 - Controlling variables that fail manipulability ("whether customers buy", "market conditions")
 - Empty or missing kill logs
-- Locking a decision without a prior bet artifact
-- Declaring victory without needle verification
-- Codifying a lesson before verification
+- Locking a decision with only a bet *proposal* — results are required
+- Declaring victory without needle verification and target comparison
+- Codifying a lesson before verification + double_down
 - Reopening a killed option without full re-justification from scratch
+- Treating Chapters 11–12 as out of scope for the human/system after codify (they still apply; this skill does not automate them)
 
 ## Project-Specific Overlay (Agent Bounty Protocol)
 
@@ -142,7 +152,7 @@ Do **not** apply this overlay to unrelated tasks.
 ## Usage Rule
 
 Before any task, confirm this skill is loaded.  
-Lock Chapter 1.  
+Lock Chapter 1 (including unknowns and if-not-met).  
 Commit the diagnostic package (2+3+4) as one atomic unit.  
-Then needle → bet → lock → verify → rollback/double-down → codify.  
+Then needle → propose bet → **record bet result** → lock → verify → rollback/double-down → codify.  
 Missing an upstream artifact is a hard stop, not a prompt to invent one.
