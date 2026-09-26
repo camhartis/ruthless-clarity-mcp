@@ -1,6 +1,20 @@
 ---
 name: ruthless-clarity
-description: Permanent operating system for every agent task and bounty work. Use on any diagnostic, research, evaluation, process, or bounty task. Triggers include define victory, map reality, controlling variable, kill options, diagnostic package, parallel diagnostic loop, Chapter 1-4, ruthless clarity, victory condition, hard constraints, needle metric. Load this skill before any real work begins.
+description: Permanent operating system for every agent task and bounty work. Use on any diagnostic, research, evaluation, process, or bounty task. Load this skill before any real work begins.
+triggers:
+  - define victory
+  - map reality
+  - controlling variable
+  - kill options
+  - diagnostic package
+  - parallel diagnostic loop
+  - ruthless clarity
+  - victory condition
+  - hard constraints
+  - needle metric
+  - irreversible bet
+  - lock decision
+  - verify the cut
 ---
 
 # Ruthless Clarity — Agent Operating System
