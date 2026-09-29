@@ -1,299 +1,110 @@
-# Ruthless Clarity — Agent-Ready Framework
+# Ruthless Clarity — Framework
 **Source:** *Ruthless Clarity: The IN → DO → OUT Protocol* by Cameron Hartis  
-**Purpose:** Permanent operating system for every agent. These rules + the Shared “Who I Am” Profile fully replace the need for the full book PDF.  
-**Last updated:** 2026-09-09
+**This file is the protocol.** It does not load a personal profile. It does not require a named author in memory to run.  
+**Updated:** 2026-09-29
+
+IN = Victory. DO = tightening loop (Map + CV + Kill) then Needle → Bet → Lock. OUT = Verify → Rollback or Double-down → Codify → Teach → Live.
+
+Ruthless Clarity is the state when intention, reality, action, and verification line up.
+
+Load `SKILL.md` first. Open this file only for chapter-level required I/O.
 
 ---
 
-## Core Operating Loop
+## Fact-check (every chapter)
 
-**IN** → Define Victory Ruthlessly  
-**DO** → Map Reality + Identify Controlling Variable + Kill Options Early (Chapters 2, 3, 4 run in parallel) → then execute with precision  
-**OUT** → Verify, Codify, Teach, Live  
-
-Ruthless Clarity is the state produced when intention, reality, action, and verification finally line up.
+Mark each material claim **Intended** (page, policy, model answer) or **Observed** (floor, log, running system) or **Unknown**. Do not promote Unknown to Observed. If they disagree, the work is to name which one changes.
 
 ---
 
-## Parallel Diagnostic Loop (Critical Instruction)
+## Ch 1 — Victory
 
-Once Chapter 1 (Victory) is complete, Chapters 2, 3, and 4 operate as **one integrated loop**, not sequential steps:
+Victory is a verifiable state, not a feeling, date, or “ready.”
 
-- Start mapping reality (Chapter 2).
-- While the map is still forming, trace dependency chains upstream to isolate the controlling variable (Chapter 3).
-- Simultaneously kill any option the moment it fails a hard constraint (Chapter 4).
+**Outsider test:** someone who does not do this work can score won/lost from the stated outcome with no interpretation. No kinship or age metaphors.
 
-Do not finish a complete reality map and only then look for the controlling variable. Do not inventory options and only later apply constraints. The three activities sharpen each other in real time. Noise is removed as signal is elevated.
+In: name of the situation; what is being attempted.  
+Out: one-sentence state; check method; outsider wording; unknowns/risks; if-not-met; locked = yes.
 
----
-
-## Chapter 1 — Define Victory Ruthlessly
-
-**Non-negotiable rule**  
-Victory is never a feeling, a go-live date, a timeline, or “we’re ready.”  
-Victory is a single, verifiable state that must be true for the work to have been worth doing.  
-Test: Can a grandmother who knows nothing about the work look at the outcome and know, without interpretation, whether we won or lost? If no, rewrite until yes.  
-Do not spend the first calorie until this statement exists.
-
-**Required Inputs**  
-- Project / decision / situation name  
-- Context of what is being attempted  
-
-**Required Outputs** (must exist before any further work)  
-- One-sentence Victory Condition (a state, not an action)  
-- Explicit verification method (how we will know the state is true)  
-- List of unknowns / assumptions / risks with owners and resolution dates  
-- Grandmother-test translation (plain language)  
-- Measurement target (if applicable)  
-- Statement of what will be done if the victory condition is not met  
-- Confirmation that the statement is locked  
-
-**Downstream dependency**  
-Chapters 2–12 may not begin until these outputs exist and are treated as fixed.
+Nothing else starts until locked.
 
 ---
 
-## Chapter 2 — Map Reality Without Flinching
+## Ch 2–4 — Tightening loop (one commit)
 
-**Non-negotiable rule**  
-Map the process as it actually runs, not as documentation, org charts, or slide decks pretend.  
-Name every real handoff, undocumented workaround, approval gate, single point of failure, and owner who does not actually own the step.  
-The floor never lies. Documentation almost always does.
+Reason across map, lever, and kills together. Commit one package when the loop is stable, not when the map is complete. Incomplete maps are intended.
 
-**Agent method** (replaces human hand-drawn flow)  
-Construct a structured dependency graph / process inventory using pure logic:  
-- Segment the system into 3–7 major pieces.  
-- For each segment list real inputs, real outputs, real owner, real frequency, and real failure modes.  
-- Explicitly flag every junction/handoff.  
-- Mark undocumented steps and approval gates.  
-- Trace actual ownership, not title ownership.
+**Ch 2 Map.** Floor over docs. Handoffs, workarounds, gates, false owners. Segment 3–7 only if still wide. In: locked Victory + process. Out: segments that matter; junctions + real owners; undocumented steps; variable inventory; intended-vs-observed flags.
 
-**Required Inputs**  
-- Locked Victory Condition from Chapter 1  
-- System or process under examination  
+**Ch 3 CV.** One rate/volume/action changeable this afternoon. Not outcome, hope, market, “whether.” In: Victory + forming map. Out: symptom; inventory (protect nothing); upstream chain; CV; afternoon proof; why it moves Victory; any variable that was being protected.
 
-**Required Outputs**  
-- Named segments / processes  
-- Explicit list of junctions and handoffs (with real owners)  
-- Flagged undocumented workarounds and approval gates  
-- Initial variable inventory (everything that appears to influence the system)  
-- First-pass dependency directions  
-
-**Downstream dependency**  
-Chapter 3 consumes the variable inventory and handoff list. Chapter 4 consumes the emerging constraints visible in the map.
+**Ch 4 Kill.** Constraints first. Fail → log → dead. In: Victory + map + CV. Out: constraints; kill log (option → constraint → Y/N); survivors; anything almost carried. Empty log invalid. Session kills persist unless full rejustification.
 
 ---
 
-## Chapter 3 — Identify the Controlling Variable
+## Ch 5 — Needle
 
-**Non-negotiable rule**  
-The controlling variable is never an outcome, a hope, a market condition, or a “whether.”  
-It is the single rate, volume, or action we can directly increase or decrease inside the time window that has the highest causal impact on the defined victory.  
-Test: Can we change this number or action this afternoon without waiting for external permission or luck? If no, it is not the controlling variable. Rewrite until the answer is yes.  
-Everything else is noise or a lagging result.
-
-**Required Inputs**  
-- Locked Victory Condition (Ch 1)  
-- Current reality map + variable inventory + handoff list (Ch 2, still forming)  
-
-**Required Outputs**  
-- Symptom statement (what is actually observed)  
-- Complete variable inventory (name everything, protect nothing)  
-- Upstream dependency chain from symptom to candidate controlling variable(s)  
-- Explicit statement of the controlling variable  
-- Justification: why changing this one thing moves the victory condition  
-- Note of any variable that was being protected from scrutiny  
-
-**Downstream dependency**  
-Chapter 4 uses the emerging controlling variable to accelerate killing of non-causal options. Chapters 5–9 treat the controlling variable as the primary lever.
+One metric causally tied to Victory and CV. If it can move without Victory moving, discard it.  
+Out: metric; target; check method; causal sentence.
 
 ---
 
-## Chapter 4 — Kill Options Early
+## Ch 6 — Bet
 
-**Non-negotiable rule**  
-Name the hard constraints first.  
-Any option that fails a constraint is killed the moment it fails and is recorded with the exact constraint that killed it.  
-Carrying an invalid option is a hidden tax.  
-A killed option stays dead unless new evidence forces a full re-justification from scratch.
-
-**Required Inputs**  
-- Locked Victory Condition (Ch 1)  
-- Emerging reality map and constraints (Ch 2)  
-- Emerging controlling variable (Ch 3)  
-
-**Required Outputs**  
-- Explicit list of hard constraints  
-- Kill log: every option generated → first constraint it failed → killed (Y/N) → time spent  
-- List of options that survived  
-- Kill-rate summary  
-- Statement of any option that was almost carried  
-
-**Downstream dependency**  
-Only surviving options may be considered in later execution chapters. The kill log becomes part of system memory.
+Smaller than fear. Information over plans.  
+Out: bet; expected needle move; rollback condition; time box.  
+Then **run it** and record result (needle movement, what was learned). Plan alone does not unlock Ch 7.
 
 ---
 
-## Chapter 5 — Measure Only What Moves the Needle
+## Ch 7 — Lock
 
-**Non-negotiable rule**  
-Select one needle metric that is causally linked to both the Victory Condition and the Controlling Variable.  
-Everything else is noise or vanity.  
-If the metric can move without the victory moving, it is the wrong metric.
-
-**Required Inputs**  
-- Victory Condition (Ch 1)  
-- Controlling Variable (Ch 3)  
-- Surviving options (Ch 4)  
-
-**Required Outputs**  
-- Single Needle Metric  
-- Target value  
-- Verification method  
-- Confirmation that the metric is causally tied to the controlling variable  
+Cut once. Reopen only with written authorization.  
+In: bet **results**. Out: locked statement; reopen protection; owner of the lock.
 
 ---
 
-## Chapter 6 — Build in Small, Irreversible Bets
+## Ch 8 — Verify
 
-**Non-negotiable rule**  
-Once victory, reality, controlling variable, and killed options are clear, the next move must be smaller than fear says it is.  
-Prefer small irreversible bets that produce real information over large plans that produce only more analysis.  
-The cost of being wrong is lowest before full commitment.
-
-**Required Inputs**  
-- All outputs from Chapters 1–5  
-
-**Required Outputs**  
-- Description of the small irreversible bet  
-- Expected movement in the Needle Metric  
-- Explicit rollback condition  
-- Time box for the bet  
+Implementation is not victory. Needle vs target, binary. Feeling better is not a check.  
+Out: measured value; met / not met; evidence.
 
 ---
 
-## Chapter 7 — Make the Cut Once
+## Ch 9 — Rollback or double-down
 
-**Non-negotiable rule**  
-Once the decision is made, lock it.  
-Reopening a settled decision is leakage.  
-A cut that stays open is not a cut; it is an ongoing expensive negotiation.  
-Require written authorization to reopen.
-
-**Required Inputs**  
-- Results of the irreversible bet (Ch 6)  
-- Needle Metric movement  
-
-**Required Outputs**  
-- Locked decision statement  
-- Protection mechanism (how casual reopening is prevented)  
-- Owner of the lock  
+Not met → rollback now. Met → double-down faster than comfort.  
+Rollback clears diagnostic↓; permanent kills remain.  
+Out: binary; next action.
 
 ---
 
-## Chapter 8 — Verify the Cut Before You Celebrate
+## Ch 10 — Codify
 
-**Non-negotiable rule**  
-Do not declare victory when the change is implemented.  
-Declare victory only when the Needle Metric has moved in the required direction and the verification method confirms it.  
-Feeling better is not verification.
-
-**Required Inputs**  
-- Locked cut (Ch 7)  
-- Needle Metric and target (Ch 5)  
-
-**Required Outputs**  
-- Measured result against the Needle Metric  
-- Binary confirmation: victory condition met / not met  
-- Evidence trail  
+Only after met + double-down. Lesson lives in the system so the same person is not required.  
+Out: one-sentence lesson; where it lives; drift control; killed recurrence; signal the system remembers.
 
 ---
 
-## Chapter 9 — Rollback Fast or Double Down Faster
+## Ch 11 — Teach
 
-**Non-negotiable rule**  
-If verification fails → rollback immediately.  
-If verification succeeds → double down faster than comfort allows.  
-Hesitation after a clear signal destroys leverage.
-
-**Required Inputs**  
-- Verification result (Ch 8)  
-
-**Required Outputs**  
-- Binary decision: Rollback or Double Down  
-- Immediate next action  
-- Updated exposure or commitment level  
+Real when others can run it without the author. If every hard call still routes through one person, that person is the hidden CV.  
+Out: transfer artifact; killed deferrals; signal others can run the relevant slice.
 
 ---
 
-## Chapter 10 — Codify the Lesson So It Never Has to Be Relearned
+## Ch 12 — Live
 
-**Non-negotiable rule**  
-A problem is not solved until the learning is written into the system so the same hero is not required next time.  
-A lesson that lives only in one head will be relearned at full price.  
-Codify only the critical few.
-
-**Required Inputs**  
-- Verified outcome and decision (Ch 8–9)  
-
-**Required Outputs**  
-- One-sentence paid-for lesson  
-- Exact location in the system where the lesson now lives  
-- Control mechanism that catches drift without the original person  
-- Recurrence path that has been killed  
-- Signal that proves the system now remembers  
+Claimed vs actual on the last real moment, including agent output. If it only works when watched, it is a performance.  
+Out: claimed vs done; gap; correction; same standard in private as in public.
 
 ---
 
-## Chapter 11 — Teach the Protocol Before You Need It
+## Agent start
 
-**Non-negotiable rule**  
-The protocol is only real when others can run it without you.  
-If every hard decision still routes through one person, that person remains the controlling variable the protocol claims to eliminate.  
-Teach the process, not the hero.
-
-**Required Inputs**  
-- Codified lessons (Ch 10)  
-- Current system state  
-
-**Required Outputs**  
-- Teaching artifacts or transfer plan  
-- Deferral patterns that have been killed  
-- Signal that others can now run the relevant part of the protocol independently  
-
----
-
-## Chapter 12 — Live the Protocol When No One Is Watching
-
-**Non-negotiable rule**  
-You do not rise to the protocol you claim. You fall to the one you live.  
-The private version sets the ceiling for the public version.  
-Small deviations teach the system what the real standard is.  
-If the protocol only works when observed, it is a performance, not a protocol.
-
-**Required Inputs**  
-- Any real moment, decision, conflict, or private standard from the current period  
-
-**Required Outputs**  
-- Honest private log (what was claimed vs what was actually done)  
-- Gap named  
-- Replacement standard or corrective action  
-- Confirmation that the same standard is being applied in private as in public  
-
----
-
-## Agent Usage Instruction
-
-Before any task:
-
-1. Load the Shared “Who I Am” Profile.  
-2. Load this framework.  
-3. Execute Chapter 1 first. Lock the Victory Condition.  
-4. Run Chapters 2, 3, and 4 as a single parallel diagnostic loop. Produce the required outputs.  
-5. Proceed through Chapters 5–12 only after the diagnostic loop has produced its artifacts.  
-6. Treat every Required Output as a hard gate. Do not invent missing upstream artifacts.  
-7. Any controlling-variable statement must pass the Chapter 3 test before it is accepted.
-
-These rules + the Shared Profile constitute the complete, agent-ready imprint of *Ruthless Clarity*. The full book PDF is no longer required.
-
-**End of framework.**
+1. This framework + `SKILL.md` only. Do not fetch a personal profile.
+2. Lock Victory (outsider test).
+3. Tightening loop → one diagnostic package.
+4. Fact-check every claim before it becomes an artifact.
+5. Needle → Bet → result → Lock → Verify → Rollback or Double-down → Codify.
+6. Hard gates. No invented upstream artifacts. CV must pass the afternoon test.
