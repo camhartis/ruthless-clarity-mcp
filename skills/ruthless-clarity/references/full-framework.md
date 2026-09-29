@@ -13,7 +13,12 @@ Load `SKILL.md` first. Open this file only for chapter-level required I/O.
 
 ## Fact-check (every chapter)
 
-Mark each material claim **Intended** (page, policy, model answer) or **Observed** (floor, log, running system) or **Unknown**. Do not promote Unknown to Observed. If they disagree, the work is to name which one changes.
+Mark each material claim **Intended** (why the page/policy/model answer exists and what it was trying to make true) or **Observed** (floor, log, running system) or **Unknown**. Do not promote Unknown to Observed.
+
+If they disagree, recover intent first. Then classify:
+- **Floor workaround** — intent was sound; practice left the page.
+- **Page drift** — page wrong, stale, or written without understanding the system.
+Both must stand scrutiny. Do not translate this as “documentation lies, ignore it.”
 
 ---
 
@@ -34,7 +39,7 @@ Nothing else starts until locked.
 
 Reason across map, lever, and kills together. Commit one package when the loop is stable, not when the map is complete. Incomplete maps are intended.
 
-**Ch 2 Map.** Floor over docs. Handoffs, workarounds, gates, false owners. Segment 3–7 only if still wide. In: locked Victory + process. Out: segments that matter; junctions + real owners; undocumented steps; variable inventory; intended-vs-observed flags.
+**Ch 2 Map.** Recover the intention behind the documentation, then compare to the floor. A mismatch is either a workaround (floor left a sound page) or page drift (the page was disconnected from the system). Scrutinize both. Handoffs, workarounds, gates, false owners. Segment 3–7 only if still wide. In: locked Victory + process. Out: segments that matter; junctions + real owners; undocumented steps; variable inventory; each disagreement labeled workaround or page drift.
 
 **Ch 3 CV.** One rate/volume/action changeable this afternoon. Not outcome, hope, market, “whether.” In: Victory + forming map. Out: symptom; inventory (protect nothing); upstream chain; CV; afternoon proof; why it moves Victory; any variable that was being protected.
 
@@ -105,6 +110,6 @@ Out: claimed vs done; gap; correction; same standard in private as in public.
 1. This framework + `SKILL.md` only. Do not fetch a personal profile.
 2. Lock Victory (outsider test).
 3. Tightening loop → one diagnostic package.
-4. Fact-check every claim before it becomes an artifact.
+4. Fact-check every claim. Recover doc intent before declaring the page a lie.
 5. Needle → Bet → result → Lock → Verify → Rollback or Double-down → Codify.
 6. Hard gates. No invented upstream artifacts. CV must pass the afternoon test.
