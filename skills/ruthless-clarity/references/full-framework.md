@@ -56,15 +56,19 @@ Out: metric; target; check method; causal sentence.
 
 ## Ch 6 — Bet
 
-Smaller than fear. Information over plans.  
-Out: bet; expected needle move; rollback condition; time box.  
-Then **run it** and record result (needle movement, what was learned). Plan alone does not unlock Ch 7.
+A real action, smaller than fear, that produces information.  
+**Irreversible** = the spend and the information cannot be un-had. It does **not** mean the system change can never be unwound.  
+Write the unwind rule in the bet. Small is what keeps unwind cheap. Analysis-only “bets” fail this chapter.
+
+Out: bet; expected needle move; unwind / rollback condition; time box.  
+Then **run it** and record result. Plan alone does not unlock Ch 7. The result is paid for even if you later unwind.
 
 ---
 
 ## Ch 7 — Lock
 
-Cut once. Reopen only with written authorization.  
+Cut once on the information the bet produced. Reopen the *decision* only with written authorization.  
+Lock is not a ban on unwinding the *position* after Verify misses.  
 In: bet **results**. Out: locked statement; reopen protection; owner of the lock.
 
 ---
@@ -78,9 +82,12 @@ Out: measured value; met / not met; evidence.
 
 ## Ch 9 — Rollback or double-down
 
-Not met → rollback now. Met → double-down faster than comfort.  
-Rollback clears diagnostic↓; permanent kills remain.  
+Not met → unwind the position using the rule written in Ch 6; stop compounding.  
+Met → increase exposure faster than comfort.  
+Rollback does not refund the bet and does not revive permanent kills. It prevents a failed cut from becoming the new default.  
 Out: binary; next action.
+
+This is not a conflict with Ch 6. Ch 6 spends for information. Ch 9 decides whether that position grows or comes off.
 
 ---
 
@@ -112,4 +119,4 @@ Out: claimed vs done; gap; correction; same standard in private as in public.
 3. Tightening loop → one diagnostic package.
 4. Fact-check every claim. Recover doc intent before declaring the page a lie.
 5. Needle → Bet → result → Lock → Verify → Rollback or Double-down → Codify.
-6. Hard gates. No invented upstream artifacts. CV must pass the afternoon test.
+6. Hard gates. No invented upstream artifacts. CV must pass the afternoon test. Do not read irreversible as never-unwind.
