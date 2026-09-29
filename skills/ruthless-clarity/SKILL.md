@@ -7,11 +7,11 @@ description: Person-independent decision protocol. Load before diagnostic, resea
 
 No personal profile. No author memory. If a run needs a “who I am” file to work, the skill is wrong.
 
-Use gate names (Victory, Map, CV, Kill, Needle, Bet, Lock, Verify). Chapter numbers are optional pointers to `references/full-framework.md`.
+Nomenclature (only these): Victory, Fact-check, Map, CV, Kill, Needle, Bet, Lock, Verify, Rollback, Double-down, Codify, Teach, Live. Do not use chapter numbers.
 
 ## Sequence (do not invent another)
 
-Victory → tightening loop until diagnostic package converges → Needle → Bet plan → **Bet result** → Lock → Verify → Rollback or Double-down → Codify (only if met + double-down).
+Victory → tightening loop until diagnostic package converges → Needle → Bet → **Bet result** → Lock → Verify → Rollback or Double-down → Codify (only if met + double-down).
 
 MCP tools if present: `define_victory` → `run_diagnostic_loop` → `set_needle_metric` → `propose_irreversible_bet` → `record_bet_result` → `lock_decision` → `verify_cut` → `rollback_or_double_down` → `codify_lesson`.
 Without MCP, emit the same artifacts as labeled sections. Missing upstream = hard stop, not an implicit pass.
@@ -72,12 +72,12 @@ Commit once when converged. Long maps that delay kills are a failure mode.
 - **Bet result:** what the needle did. Required before Lock. You cannot undo the fact that you ran it.
 - **Lock:** cut once on that information; written reopen rule. Lock is not “never unwind the position.”
 - **Verify:** binary vs needle target. Feeling better is not verify.
-- **Rollback / double-down:** after Verify. Miss → stop compounding and unwind the position using the rule written in the bet. Hit → increase exposure. Rollback does not erase the lesson or the cost already paid. Permanent kills stay.
+- **Rollback / Double-down:** after Verify. Miss → stop compounding and unwind the position using the rule written in the bet. Hit → increase exposure. Rollback does not erase the lesson or the cost already paid. Permanent kills stay.
 - **Codify:** only after met + double-down. Lesson lives in the system, not in one head.
 
 ## Forbidden
 
-Skip Victory · infer Victory later · finish a full map then invent a lever · CV that fails afternoon test · empty kill log · Lock on a bet plan only · celebrate before Verify · Codify before met + double-down · revive a kill without rejustification · load a personal profile to “make the protocol work” · treat model text as Observed · treat documentation as automatically false · read “irreversible bet” as “never rollback”
+Skip Victory · infer Victory later · finish a full map then invent a lever · CV that fails afternoon test · empty kill log · Lock on a bet plan only · celebrate before Verify · Codify before met + double-down · revive a kill without rejustification · load a personal profile to “make the protocol work” · treat model text as Observed · treat documentation as automatically false · read “irreversible bet” as “never rollback” · navigate by chapter numbers
 
 ## Optional overlay (only if the user says this project is in force)
 

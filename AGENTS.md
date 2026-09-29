@@ -7,11 +7,13 @@ This file is for AI coding agents (and humans using them) that modify this repo.
 Ruthless Clarity is a **decision-discipline** MCP server + skill.  
 It forces a fixed gate sequence. Do not turn it into a general agent framework, chatbot, or task runner.
 
+Nomenclature: Victory, Fact-check, Map, CV, Kill, Needle, Bet, Lock, Verify, Rollback, Double-down, Codify. Do not use chapter numbers in product text.
+
 ## Non-negotiable product rules
 
 1. **Hard gates stay hard.** Never soften a gate to "warn and continue." Missing upstream artifacts must return `isError: true` with a clear `HARD GATE` or `REJECTED` message.
-2. **Atomic diagnostic package.** Chapters 2+3+4 are one operational commit (`run_diagnostic_loop`). Do not split into three tools unless the skill, README, AGENTS.md, and tests are updated together.
-3. **Bet results before lock.** `lock_decision` requires `record_bet_result`, not only `propose_irreversible_bet`. This matches protocol Ch 6 → Ch 7 (information before commitment).
+2. **Atomic diagnostic package.** Map + CV + Kill are one operational commit (`run_diagnostic_loop`). Do not split into three tools unless the skill, README, AGENTS.md, and tests are updated together.
+3. **Bet results before lock.** `lock_decision` requires `record_bet_result`, not only `propose_irreversible_bet`. Information before commitment.
 4. **Session permanent kills.** Options killed in-session stay dead across diagnostic refresh and rollback unless `rejustification` is supplied when marking them survived.
 5. **Codify only after success.** `codify_lesson` requires `verification.result === "met"` and `lastAction === "double_down"`.
 6. **Rollback clears stale state; permanent kills remain.** On rollback, clear diagnostic and everything below it. Victory may remain locked. `permanentKillLog` is retained.
@@ -35,8 +37,8 @@ define_victory
 If you add a tool, place it explicitly in this chain and update:
 
 - `src/index.ts` (gates + state)
-- `skills/ruthless-clarity/SKILL.md` (tool table + failure modes)
-- `README.md` (tools table + sequence)
+- `skills/ruthless-clarity/SKILL.md`
+- `README.md`
 - This file
 
 ## Editing the skill vs the server
@@ -72,8 +74,9 @@ Broken links (e.g. references to removed `protocol/` paths) are release blockers
 - Do not add network calls, API keys, or telemetry to the public server without an explicit product decision.
 - Do not expand the bounty overlay into default behavior for all users.
 - Do not claim Docker custom-Dockerfile path supports stdio-only servers on MCPRush (it does not; Node or published-image paths do).
-- Do not invent a second "parallel" operational path that diverges from `run_diagnostic_loop`.
+- Do not invent a second operational path that diverges from `run_diagnostic_loop`.
 - Do not allow `lock_decision` after proposal only — results are required.
+- Do not reintroduce chapter numbers into skill or README copy.
 
 ## Local verification before PR
 
