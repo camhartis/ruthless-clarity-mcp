@@ -35,11 +35,16 @@ Spend nothing until this exists.
 ## Fact-check gate (applies to every later artifact)
 
 Every material claim is one of:
-- **Intended** — source of record (policy, SOP, model answer, ticket, design)
+- **Intended** — why the source of record exists (policy, SOP, model answer, ticket, design) and what it was trying to make true
 - **Observed** — floor evidence (what operators, logs, or the running system actually do)
 - **Unknown** — not yet marked
 
-Unmarked claims are not map, not CV, not needle. Agents must not treat their own prose as Observed. If Intended and Observed disagree, name which will be corrected. This is the same rule on AI output as on a human SOP.
+Unmarked claims are not map, not CV, not needle. Agents must not treat their own prose as Observed.
+
+If Intended and Observed disagree, do **not** default to “the document is a lie.” Recover the intent of the page first. Then name which case you are in:
+1. **Floor workaround** — intent was sound; people left the page; say why.
+2. **Page drift** — the page was wrong, stale, or written without understanding the system; people were right to leave it.
+Both cases must stand up to scrutiny. The work is to choose which one to correct, not to discard documentation on sight.
 
 ## Tightening loop → one diagnostic package
 
@@ -54,7 +59,7 @@ Map a slice → constraints appear → kill what fails them → CV candidate
 
 Commit once when converged. Long maps that delay kills are a failure mode.
 
-**Map.** Process as it runs. Handoffs, workarounds, approval gates, owners who do not own the step. 3–7 segments only if still wide. Inputs / outputs / owner / frequency / failure mode on segments that matter for the current CV candidate.
+**Map.** Recover intent of the page, then compare to the floor. Handoffs, workarounds, approval gates, owners who do not own the step. Flag each disagreement as floor workaround or page drift. 3–7 segments only if still wide. Inputs / outputs / owner / frequency / failure mode on segments that matter for the current CV candidate.
 
 **CV.** Rate, volume, or action you can change this afternoon without permission or luck. Never an outcome, hope, market, or “whether.” State symptom → CV → afternoon action → why it moves Victory.
 
@@ -72,7 +77,7 @@ Commit once when converged. Long maps that delay kills are a failure mode.
 
 ## Forbidden
 
-Skip Victory · infer Victory later · finish a full map then invent a lever · CV that fails afternoon test · empty kill log · Lock on a bet plan only · celebrate before Verify · Codify before met + double-down · revive a kill without rejustification · load a personal profile to “make the protocol work” · treat model text as Observed
+Skip Victory · infer Victory later · finish a full map then invent a lever · CV that fails afternoon test · empty kill log · Lock on a bet plan only · celebrate before Verify · Codify before met + double-down · revive a kill without rejustification · load a personal profile to “make the protocol work” · treat model text as Observed · treat documentation as automatically false
 
 ## Optional overlay (only if the user says this project is in force)
 
