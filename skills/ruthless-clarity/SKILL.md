@@ -68,16 +68,16 @@ Commit once when converged. Long maps that delay kills are a failure mode.
 ## After the package
 
 - **Needle:** one metric tied to Victory and CV. If it can move while Victory does not, wrong metric.
-- **Bet plan:** small, irreversible, rollback condition, time box.
-- **Bet result:** what the needle did. Required before Lock.
-- **Lock:** cut once; written reopen rule.
+- **Bet:** a small real action in the world. **Irreversible** means the spend and the information cannot be un-had — not that the system change can never be unwound. Write the unwind rule *in the bet*. Small is what makes unwind cheap.
+- **Bet result:** what the needle did. Required before Lock. You cannot undo the fact that you ran it.
+- **Lock:** cut once on that information; written reopen rule. Lock is not “never unwind the position.”
 - **Verify:** binary vs needle target. Feeling better is not verify.
-- **Rollback / double-down:** forced by Verify. Rollback clears diagnostic↓; permanent kills stay.
+- **Rollback / double-down:** after Verify. Miss → stop compounding and unwind the position using the rule written in the bet. Hit → increase exposure. Rollback does not erase the lesson or the cost already paid. Permanent kills stay.
 - **Codify:** only after met + double-down. Lesson lives in the system, not in one head.
 
 ## Forbidden
 
-Skip Victory · infer Victory later · finish a full map then invent a lever · CV that fails afternoon test · empty kill log · Lock on a bet plan only · celebrate before Verify · Codify before met + double-down · revive a kill without rejustification · load a personal profile to “make the protocol work” · treat model text as Observed · treat documentation as automatically false
+Skip Victory · infer Victory later · finish a full map then invent a lever · CV that fails afternoon test · empty kill log · Lock on a bet plan only · celebrate before Verify · Codify before met + double-down · revive a kill without rejustification · load a personal profile to “make the protocol work” · treat model text as Observed · treat documentation as automatically false · read “irreversible bet” as “never rollback”
 
 ## Optional overlay (only if the user says this project is in force)
 
